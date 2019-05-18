@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "nodemon server/server.js",
+    "test": "jest",
     "react-dev": "webpack -d --watch"
   },
   "dependencies": {
