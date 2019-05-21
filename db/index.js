@@ -37,5 +37,19 @@ sequelize
   Game.sync({ force: false, logging: false }).then(() => {
     console.log('Game table synced');
   });
-  
+
+  findGamebyId = (id, callback) => {
+    Game.findOne({
+      where: {
+        id: id
+      }
+    })
+    .then(game => {
+      callback(null, JSON.stringify(game));
+    })
+    .catch(err => {
+      callback(err);
+    })
+  }
+  module.exports.findGamebyId = findGamebyId;
   module.exports.Game = Game;

@@ -29,8 +29,31 @@ const Wrapper = styled.section`
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      gameInfo: {
+        name: null,
+        description: null,
+        head_url: null,
+        release_date: null,
+        developer: null,
+        publisher: null,
+        negative_review_count: null,
+        positive_review_count: null,
+        recent_negative_count: null,
+        recent_positive_count: null
+      }
+    }
   }
 
+  componentDidMount() {
+    fetch('/games/1')
+    .then(response => response.json())
+    .then(gameInfo => {
+      this.setState({
+        gameInfo
+      }, () => console.log(this.state));
+    });
+  }
   render() {
     return (
       <Wrapper>
