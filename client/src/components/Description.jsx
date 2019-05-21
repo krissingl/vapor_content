@@ -20,7 +20,7 @@ class Description extends React.Component {
   render() {
     return(
       <Wrapper>
-        <Cover/>
+        <Cover url={this.props.gameInfo.head_url}/>
         <Snippet/>
         <Info/>
         <Tags/>

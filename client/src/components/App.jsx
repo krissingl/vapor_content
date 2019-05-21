@@ -66,9 +66,7 @@ class App extends React.Component {
           <GalleryWrapper>
             <Gallery/>
           </GalleryWrapper>
-          <DescWrapper>
-            <Description gameInfo={this.state.gameInfo}/>
-          </DescWrapper>
+          <Description gameInfo={this.state.gameInfo}/>
         </Wrapper>
       </Background>
     )
