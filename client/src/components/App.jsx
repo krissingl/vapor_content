@@ -3,7 +3,12 @@ import Gallery from "./Gallery.jsx";
 import Description from "./Description.jsx";
 import styled from 'styled-components';
 
-
+const Background = styled.div`
+  background: #1b2838;
+  color: #acb2b8;
+  width: auto;
+  margin: 0 2%;
+`;
 
 const Wrapper = styled.section`
     padding: 0px 0px 12px;
@@ -14,9 +19,9 @@ const Wrapper = styled.section`
   `;
 
  const DescWrapper = styled.div`
+    width: 308px;
+    margin-left: 14px;
     float: right;
-    width: 324px;
-    height: 100%;
     background: blue;
  `;
 
@@ -56,14 +61,16 @@ class App extends React.Component {
   }
   render() {
     return (
-      <Wrapper>
-        <GalleryWrapper>
-          <Gallery/>
-        </GalleryWrapper>
-        <DescWrapper>
-          <Description/>
-        </DescWrapper>
-      </Wrapper>
+      <Background>
+        <Wrapper>
+          <GalleryWrapper>
+            <Gallery/>
+          </GalleryWrapper>
+          <DescWrapper>
+            <Description gameInfo={this.state.gameInfo}/>
+          </DescWrapper>
+        </Wrapper>
+      </Background>
     )
   }
   
