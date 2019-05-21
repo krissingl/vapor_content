@@ -1,6 +1,7 @@
 const express = require('express');
-var app = express();
-var port = 3002;
+const app = express();
+const db = require('../db');
+const port = 3002;
 app.use(express.static('public'));
 
 
