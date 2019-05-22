@@ -12,24 +12,18 @@ const Background = styled.div`
 
 const Wrapper = styled.section`
     padding: 0px 0px 12px;
-    background: #C6D4DF;
     margin: 0px 231.5px;
     width: 940px;
     height: 444px;
+    font-family: Arial, Helvetica, sans-serif;
   `;
 
- const DescWrapper = styled.div`
-    width: 308px;
-    margin-left: 14px;
-    float: right;
-    background: blue;
- `;
 
  const GalleryWrapper = styled.div`
     float: left;
     width: 616px;
     height: 100%;
-    background: yellow;
+    background: #c6d4df;
  `;
 class App extends React.Component {
   constructor(props) {

@@ -7,10 +7,8 @@ import Tags from './Tags.jsx';
 
 
 const Wrapper = styled.div`
-  width: 308px;
-  margin-left: 14px;
+  width: 324px;
   float: right;
-  background: blue;
 `;
 class Description extends React.Component {
   constructor(props) {
@@ -21,8 +19,12 @@ class Description extends React.Component {
     return(
       <Wrapper>
         <Cover url={this.props.gameInfo.head_url}/>
-        <Snippet/>
-        <Info/>
+        <Snippet snippet={this.props.gameInfo.description}/>
+        <Info 
+          developer={this.props.gameInfo.developer}
+          publisher={this.props.gameInfo.publisher}
+          date={this.props.gameInfo.release_date}
+        />
         <Tags/>
       </Wrapper>
     )
