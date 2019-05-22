@@ -44,21 +44,32 @@ const ReleaseDateColumn = styled.div`
   text-overflow: ellipsis;
 `;
 
+const ResponsiveHidden = styled.span`
+`;
+
 class Info extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
+    var allReviewsCount = this.props.positiveReviews + this.props.negativeReviews;
+    var allReviewsCondition = 
+        reviewStringAndPercentageGenerator(this.props.positiveReviews, this.props.negativeRivews);
+    var recentReviewsCount = this.props.recentPositiveReviews + this.props.recentNegativeReviews;
+    var recentReviewsCondition = 
+        reviewStringAndPercentageGenerator(this.props.recentPositiveReviews, this.props.recentNegativeReviews)
     return(
       <Wrapper>
         <InfoRow>
           <SubtitleColumn>Recent Reviews</SubtitleColumn>
-          <DataColumn>Mostly Positive</DataColumn>
+          <DataColumn>{recentReviewsCondition[0]}</DataColumn>
+          <ResponsiveHidden>({recentReviewsCount})</ResponsiveHidden>
         </InfoRow>
         <InfoRow>
           <SubtitleColumn>all reviews</SubtitleColumn>
-          <DataColumn>Very Positive</DataColumn>
+          <DataColumn>{allReviewsCondition[0]}</DataColumn>
+          <ResponsiveHidden>({allReviewsCount})</ResponsiveHidden>
         </InfoRow>
         <ReleaseDateRow>
           <SubtitleColumn>release date</SubtitleColumn>
@@ -77,4 +88,23 @@ class Info extends React.Component {
   }
 }
 
+var reviewStringAndPercentageGenerator = (positive, negative) => {
+  var percentage = positive/(positive + negative);
+  var str ='';
+  if (percentage >= 0.95) {
+    str = 'Overhwelmingly Positive';
+  } else if (percentage >= 0.8) {
+    str = 'Very Positive';
+  } else if (percentage >= 0.7) {
+    str = 'Mostly Positive';
+  } else if (percentage >= 0.4) {
+    str = 'Mixed';
+  } else if (percentage >= 0.2) {
+    str = 'Mostly Negative';
+  } else {
+    str = 'Very Negative';
+  }
+
+  return [str, String(Math.floor(percentage * 100)) + '%'];
+}
 export default Info;
