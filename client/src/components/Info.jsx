@@ -27,6 +27,7 @@ const SubtitleColumn = styled.div`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+
 `;
 
 
@@ -35,6 +36,12 @@ const DataColumn = styled.div`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+`;
+
+const ProducerDataColumn = styled(DataColumn)`
+  &:hover {
+    color: #FFFFFF;
+  }
 `;
 
 const ReleaseDateColumn = styled.div`
@@ -97,11 +104,11 @@ class Info extends React.Component {
         </ReleaseDateRow>
         <InfoRow>
           <SubtitleColumn>developer</SubtitleColumn>
-          <DataColumn>{this.props.developer}</DataColumn>
+          <ProducerDataColumn>{this.props.developer}</ProducerDataColumn>
         </InfoRow>
         <InfoRow>
           <SubtitleColumn>publisher</SubtitleColumn>
-          <DataColumn>{this.props.publisher}</DataColumn>
+          <ProducerDataColumn>{this.props.publisher}</ProducerDataColumn>
         </InfoRow>
       </Wrapper>
     )
