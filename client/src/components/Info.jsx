@@ -82,7 +82,8 @@ class Info extends React.Component {
         reviewStringAndPercentageGenerator(this.props.positiveReviews, this.props.negativeRivews);
     var recentReviewsCount = this.props.recentPositiveReviews + this.props.recentNegativeReviews;
     var recentReviewsCondition = 
-        reviewStringAndPercentageGenerator(this.props.recentPositiveReviews, this.props.recentNegativeReviews)
+        reviewStringAndPercentageGenerator(this.props.recentPositiveReviews, this.props.recentNegativeReviews);
+
     return(
       <Wrapper>
         <InfoRow>
@@ -100,7 +101,7 @@ class Info extends React.Component {
         </InfoRow>
         <ReleaseDateRow>
           <SubtitleColumn>release date</SubtitleColumn>
-          <ReleaseDateColumn>{this.props.date}</ReleaseDateColumn>
+          <ReleaseDateColumn>{dateStringGenerator(this.props.date)}</ReleaseDateColumn>
         </ReleaseDateRow>
         <InfoRow>
           <SubtitleColumn>developer</SubtitleColumn>
@@ -133,5 +134,14 @@ var reviewStringAndPercentageGenerator = (positive, negative) => {
   }
 
   return [str, String(Math.floor(percentage * 100)) + '%'];
+}
+
+var dateStringGenerator = (date) => {
+  if(date === null) {
+    return '';
+  }
+  var yearMonthDay = date.substring(0, 10).split('-');
+  var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  return yearMonthDay[2] + ' ' + months[Number(yearMonthDay[1]) - 1] + ', ' + yearMonthDay[0];
 }
 export default Info;
