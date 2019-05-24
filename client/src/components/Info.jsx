@@ -46,6 +46,23 @@ const ReleaseDateColumn = styled.div`
 
 const ResponsiveHidden = styled.span`
 `;
+// const Bubble = styled.span`
+//   display: none;
+//   background: #c2c2c2;
+//   color: #3d3d3f;
+//   font-size: 11px;
+//   border-radius: 3px;
+//   padding: 5px;
+//   max-width: 275px;
+//   white-space: normal;
+//   box-shadow: 0 0 3px #000000;
+//   word-wrap: break-word;
+//   position: absolute;
+//   pointer-events: auto;
+//   ${InfoRow}:hover & {
+//     display: block;
+//   }
+// `;
 
 class Info extends React.Component {
   constructor(props) {
@@ -70,6 +87,9 @@ class Info extends React.Component {
           <SubtitleColumn>all reviews</SubtitleColumn>
           <DataColumn>{allReviewsCondition[0]}</DataColumn>
           <ResponsiveHidden>({allReviewsCount})</ResponsiveHidden>
+          {/* <Bubble>
+            This is the bubble
+          </Bubble> */}
         </InfoRow>
         <ReleaseDateRow>
           <SubtitleColumn>release date</SubtitleColumn>
