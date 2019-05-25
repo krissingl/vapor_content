@@ -18,17 +18,27 @@ app.get('/games/:uid', (req, res) => {
 });
 
 app.get('/screenshots', (req, res) => {
-  db.findScreenshots((err,screenshots) => {
-    if(err) {
-      console.log(err);
-      res.status(404);
-    } else {
-      res.status(200);
-      res.send(screenshots);
-    }
-  });
+  // db.findScreenshots((err,screenshots) => {
+  //   if(err) {
+  //     console.log(err);
+  //     res.status(404);
+  //   } else {
+  //     res.status(200);
+  //     res.send(screenshots);
+  //   }
+  // });
+  res.status(200);
+  res.send(screenshotsUrls());
 });
 
 app.listen(port, (req, res) => {
   console.log('Listening to ' + port + '!');
 });
+
+var screenshotsUrls = () => {
+  var result =[];
+  for(let i = 1; i < 11; i++) {
+    result.push('https://s3-us-west-1.amazonaws.com/fecsteam/Images/'+ i +'.jpeg')
+  }
+  return result;
+}

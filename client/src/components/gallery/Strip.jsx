@@ -15,7 +15,7 @@ const StripScroll = styled.div`
 
 const HighlightSelector = styled.div`
   position: absolute;
-  left: 240px;
+  left: ${props => props.selectorPos}
   background-image: url(https://store.steampowered.com/public/images/v5/game_highlight_activethumb.png);
   width: 116px;
   height: 77px;
@@ -42,16 +42,20 @@ const Img = styled.img`
 class Strip extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      selectorPos : '240px' 
+    }
   }
+
 
   render() {
     return(
       <Wrapper>
         <StripScroll>
-          <HighlightSelector></HighlightSelector>
+          <HighlightSelector selectorPos={this.state.selectorPos}></HighlightSelector>
           {
             this.props.screenshots.map(url => {
-              return <Screenshot><Img src={url}/></Screenshot>
+              return <Screenshot onClick={() => alert('You clicked this one!')}><Img src={url}/></Screenshot>
             })
           }
         </StripScroll>

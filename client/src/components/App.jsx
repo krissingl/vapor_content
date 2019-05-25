@@ -44,7 +44,7 @@ class App extends React.Component {
       tags: ['Free to play', 'MOBA', 'Strategy', 'Multiplayer', 'PVP'],
       media: {
         vidoes: [],
-        images: ['http://lorempixel.com/640/480']
+        images: ['https://s3-us-west-1.amazonaws.com/fecsteam/Images/1.jpeg']
       }
     }
   }
@@ -61,14 +61,10 @@ class App extends React.Component {
     fetch('/screenshots') 
     .then(response => response.json())
     .then(screenshots => {
-      var urls = [];
-      screenshots.forEach(obj => {
-        urls.push(obj['url']);
-      });
       this.setState({
         media: {
           vidoes: [],
-          images: urls
+          images: screenshots
         }
       }, () => console.log(this.state));
     });
