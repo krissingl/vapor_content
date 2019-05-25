@@ -29,7 +29,7 @@ class Description extends React.Component {
           recentPositiveReviews={this.props.gameInfo.recent_negative_count}
           recentNegativeReviews={this.props.gameInfo.recent_positive_count}
         />
-        <Tags/>
+        <Tags tags={this.props.tags}/>
       </Wrapper>
     )
   }

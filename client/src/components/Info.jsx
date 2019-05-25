@@ -53,6 +53,9 @@ const ReleaseDateColumn = styled.div`
 
 const ResponsiveHidden = styled.span`
 `;
+
+
+
 // const Bubble = styled.span`
 //   display: none;
 //   background: #c2c2c2;

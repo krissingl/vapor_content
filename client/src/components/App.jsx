@@ -40,7 +40,8 @@ class App extends React.Component {
         positive_review_count: null,
         recent_negative_count: null,
         recent_positive_count: null
-      }
+      },
+      tags: ['Free to play', 'MOBA', 'Strategy', 'Multiplayer', 'PVP']
     }
   }
 
@@ -60,7 +61,10 @@ class App extends React.Component {
           <GalleryWrapper>
             <Gallery/>
           </GalleryWrapper>
-          <Description gameInfo={this.state.gameInfo}/>
+          <Description 
+          gameInfo={this.state.gameInfo} 
+          tags={this.state.tags}
+          />
         </Wrapper>
       </Background>
     )
