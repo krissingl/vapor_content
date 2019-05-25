@@ -10,6 +10,7 @@ const Wrapper = styled.div`
 const InfoRow = styled.div`
   display: flex;
   line-height: 16px;
+  cursor: pointer;
 `;
 
 const ReleaseDateRow = styled.div`
