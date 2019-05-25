@@ -1,7 +1,18 @@
 import React from 'react';
+import styled from 'styled-components'
 
-const Highlight = () =>
-  <div>Highlight</div>
+class Highlight extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return(
+      <div>Highlight</div>
+    );
+  }
+}
+ 
 
 
 export default Highlight;

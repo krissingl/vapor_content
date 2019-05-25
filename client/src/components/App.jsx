@@ -19,12 +19,11 @@ const Wrapper = styled.section`
   `;
 
 
- const GalleryWrapper = styled.div`
+ const LeftCol = styled.div`
     float: left;
     width: 616px;
-    height: 100%;
-    background: #c6d4df;
  `;
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -58,9 +57,9 @@ class App extends React.Component {
     return (
       <Background>
         <Wrapper>
-          <GalleryWrapper>
+          <LeftCol>
             <Gallery/>
-          </GalleryWrapper>
+          </LeftCol>
           <Description 
           gameInfo={this.state.gameInfo} 
           tags={this.state.tags}
