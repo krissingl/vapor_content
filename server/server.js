@@ -14,7 +14,19 @@ app.get('/games/:uid', (req, res) => {
       res.status(200);
       res.send(game);
     }
-  })
+  });
+});
+
+app.get('/screenshots', (req, res) => {
+  db.findScreenshots((err,screenshots) => {
+    if(err) {
+      console.log(err);
+      res.status(404);
+    } else {
+      res.status(200);
+      res.send(screenshots);
+    }
+  });
 });
 
 app.listen(port, (req, res) => {
