@@ -4,6 +4,12 @@ import Highlight from './gallery/Highlight.jsx';
 import Strip from './gallery/Strip.jsx';
 import Slider from './gallery/Slider.jsx';
 
+const Overflow = styled.div`
+  overflow: hidden;
+  margin-right: 16px;
+  position: relative;
+  background: grey;
+`;
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
@@ -11,7 +17,10 @@ class Gallery extends React.Component {
 
   render() {
     return(
-      <div>Gallery</div>
+      <Overflow>
+        <Highlight image={this.props.media.images[0]}/>
+        Gallery
+      </Overflow>
     );
   }
 }

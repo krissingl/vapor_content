@@ -40,7 +40,11 @@ class App extends React.Component {
         recent_negative_count: null,
         recent_positive_count: null
       },
-      tags: ['Free to play', 'MOBA', 'Strategy', 'Multiplayer', 'PVP']
+      tags: ['Free to play', 'MOBA', 'Strategy', 'Multiplayer', 'PVP'],
+      media: {
+        vidoes: [],
+        images: ['http://lorempixel.com/640/480']
+      }
     }
   }
 
@@ -58,7 +62,7 @@ class App extends React.Component {
       <Background>
         <Wrapper>
           <LeftCol>
-            <Gallery/>
+            <Gallery media={this.state.media}/>
           </LeftCol>
           <Description 
           gameInfo={this.state.gameInfo} 
