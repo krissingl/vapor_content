@@ -56,6 +56,21 @@ class App extends React.Component {
         gameInfo
       }, () => console.log(this.state));
     });
+
+    fetch('/screenshots') 
+    .then(response => response.json())
+    .then(screenshots => {
+      var urls = [];
+      screenshots.forEach(obj => {
+        urls.push(obj['url']);
+      });
+      this.setState({
+        media: {
+          vidoes: [],
+          images: urls
+        }
+      }, () => console.log(this.state));
+    });
   }
   render() {
     return (
