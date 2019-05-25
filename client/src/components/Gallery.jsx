@@ -19,7 +19,8 @@ class Gallery extends React.Component {
     return(
       <Overflow>
         <Highlight image={this.props.media.images[0]}/>
-        Gallery
+        <Strip screenshots={this.props.media.images}/>
+        <Slider/>
       </Overflow>
     );
   }

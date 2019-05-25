@@ -22,6 +22,7 @@ const Wrapper = styled.section`
  const LeftCol = styled.div`
     float: left;
     width: 616px;
+    display: block;
  `;
 
 class App extends React.Component {
