@@ -45,7 +45,6 @@ class Strip extends React.Component {
     super(props);
     this.state = {
       selectorPos : '240px',
-      stripPos: '0px'
     }
     this.handleClick = this.handleClick.bind(this);
   }
@@ -57,9 +56,10 @@ handleClick (url,index){
   })
 }
   render() {
+    var stripPos = this.props.sliderPos * (-962/462) + 'px';
     return(
       <Wrapper>
-        <StripScroll>
+        <StripScroll stripPos={stripPos} >
           <HighlightSelector selectorPos={this.state.selectorPos}></HighlightSelector>
           {
             this.props.screenshots.map((url, index) => {

@@ -27,7 +27,11 @@ handleClick(url) {
     return(
       <Overflow>
         <Highlight image={this.state.url} />
-        <Strip screenshots={this.props.media.images} onClick = {this.handleClick}/>
+        <Strip 
+              screenshots={this.props.media.images} 
+              onClick = {this.handleClick} 
+              sliderPos={this.props.sliderPos}
+        />
         <Slider sliderPos={this.props.sliderPos} onSliderMove = {this.props.onSliderMove}/>
       </Overflow>
     );

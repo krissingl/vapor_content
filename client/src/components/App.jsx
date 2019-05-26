@@ -46,7 +46,7 @@ class App extends React.Component {
         vidoes: [],
         images: ['https://s3-us-west-1.amazonaws.com/fecsteam/Images/1.jpeg']
       },
-      sliderPos: '261'
+      sliderPos: '0'
     }
     this.handleSliderMove = this.handleSliderMove.bind(this);
   }
