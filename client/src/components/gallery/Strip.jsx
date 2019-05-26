@@ -45,9 +45,12 @@ class Strip extends React.Component {
     this.state = {
       selectorPos : '240px' 
     }
+    this.handleClick = this.handleClick.bind(this);
   }
-
-
+  
+handleClick (url){
+  this.props.onClick(url);
+}
   render() {
     return(
       <Wrapper>
@@ -55,7 +58,7 @@ class Strip extends React.Component {
           <HighlightSelector selectorPos={this.state.selectorPos}></HighlightSelector>
           {
             this.props.screenshots.map(url => {
-              return <Screenshot onClick={() => alert('You clicked this one!')}><Img src={url}/></Screenshot>
+              return <Screenshot onClick={() => this.handleClick(url)}><Img src={url}/></Screenshot>
             })
           }
         </StripScroll>

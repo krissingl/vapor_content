@@ -13,13 +13,21 @@ const Overflow = styled.div`
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      url : props.media.images[0]
+    };
+    this.handleClick = this.handleClick.bind(this);
   }
-
+handleClick(url) {
+  this.setState({
+    url
+  })
+}
   render() {
     return(
       <Overflow>
-        <Highlight image={this.props.media.images[0]}/>
-        <Strip screenshots={this.props.media.images}/>
+        <Highlight image={this.state.url} />
+        <Strip screenshots={this.props.media.images} onClick = {this.handleClick}/>
         <Slider/>
       </Overflow>
     );
