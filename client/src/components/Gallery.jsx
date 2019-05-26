@@ -8,7 +8,6 @@ const Overflow = styled.div`
   overflow: hidden;
   margin-right: 16px;
   position: relative;
-  background: grey;
 `;
 class Gallery extends React.Component {
   constructor(props) {
@@ -23,12 +22,13 @@ handleClick(url) {
     url
   })
 }
+
   render() {
     return(
       <Overflow>
         <Highlight image={this.state.url} />
         <Strip screenshots={this.props.media.images} onClick = {this.handleClick}/>
-        <Slider/>
+        <Slider sliderPos={this.props.sliderPos} onSliderMove = {this.props.onSliderMove}/>
       </Overflow>
     );
   }

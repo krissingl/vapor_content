@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   z-index: 40;
 `;
 const StripScroll = styled.div`
+  left: ${props => props.stripPos};
   width: 1562px;
   position: absolute;
 `;
@@ -43,13 +44,17 @@ class Strip extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectorPos : '240px' 
+      selectorPos : '240px',
+      stripPos: '0px'
     }
     this.handleClick = this.handleClick.bind(this);
   }
   
-handleClick (url){
+handleClick (url,index){
   this.props.onClick(url);
+  this.setState({
+    selectorPos: String(120*index) + 'px'
+  })
 }
   render() {
     return(
@@ -57,8 +62,8 @@ handleClick (url){
         <StripScroll>
           <HighlightSelector selectorPos={this.state.selectorPos}></HighlightSelector>
           {
-            this.props.screenshots.map(url => {
-              return <Screenshot onClick={() => this.handleClick(url)}><Img src={url}/></Screenshot>
+            this.props.screenshots.map((url, index) => {
+              return <Screenshot onClick={() => this.handleClick(url, index)}><Img src={url}/></Screenshot>
             })
           }
         </StripScroll>
