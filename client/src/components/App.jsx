@@ -43,7 +43,7 @@ class App extends React.Component {
       },
       tags: ['Free to play', 'MOBA', 'Strategy', 'Multiplayer', 'PVP'],
       media: {
-        vidoes: [],
+        videos: [],
         images: ['https://s3-us-west-1.amazonaws.com/fecsteam/Images/1.jpeg']
       },
       sliderPos: '0'
@@ -65,8 +65,19 @@ class App extends React.Component {
     .then(screenshots => {
       this.setState({
         media: {
-          vidoes: [],
+          videos: this.state.media.videos,
           images: screenshots
+        }
+      }, () => console.log(this.state));
+    });
+
+    fetch('/videos')
+    .then(response => response.json())
+    .then(({items}) => {
+      this.setState({
+        media: {
+          videos : items,
+          images:this.state.media.images
         }
       }, () => console.log(this.state));
     });
