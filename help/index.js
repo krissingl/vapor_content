@@ -19,5 +19,25 @@ var screenshotsUrls = () => {
   }
   return result;
 }
+
+var getVideosFromAws = () => {
+  return [
+    {
+      video : 'https://s3-us-west-1.amazonaws.com/fecsteam/Videos/Total+War-+THREE+KINGDOMS+-+Liu+Bei+Launch+Trailer+-+YouTube.mkv',
+      thumbnail: 'https://s3-us-west-1.amazonaws.com/fecsteam/Videos/LiuBeiLunachTrailer.jpg'
+    },
+    {
+      video : 'https://s3-us-west-1.amazonaws.com/fecsteam/Videos/Total+War-+THREE+KINGDOMS+-+Announcement+Cinematic+-+YouTube.mkv',
+      thumbnail: 'https://s3-us-west-1.amazonaws.com/fecsteam/Videos/AnauncementTrailer.jpg'
+    },
+    {
+      video : 'https://s3-us-west-1.amazonaws.com/fecsteam/Videos/Total+War-+THREE+KINGDOMS+-+Forge+Your+Legend+-+YouTube.mkv',
+      thumbnail: 'https://s3-us-west-1.amazonaws.com/fecsteam/Videos/ForgeYourLegend.jpg'
+    }
+  ]
+ 
+};
+
 module.exports.searchYouTube = searchYouTube;
 module.exports.screenshotsUrls = screenshotsUrls;
+module.exports.getVideosFromAws = getVideosFromAws;

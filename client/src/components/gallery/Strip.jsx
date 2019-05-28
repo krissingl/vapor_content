@@ -35,6 +35,15 @@ const Screenshot = styled.div`
   position: relative;
 `;
 
+const MovieMaker = styled.div`
+  position: absolute;
+  top: 16px;
+  left: 42px;
+  width: 32px;
+  height: 32px;
+  background-image: url(https://store.steampowered.com/public/images/v5/ico_game_highlight_video.png);
+`;
+
 const Img = styled.img`
   width: 115px;
   height: 65px
@@ -49,23 +58,38 @@ class Strip extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
   
-handleClick (url,index){
-  this.props.onClick(url);
+handleClick(index){
+  this.props.onClick(index);
   this.setState({
     selectorPos: String(120*index) + 'px'
   })
 }
   render() {
     var stripPos = this.props.sliderPos * (-962/462) + 'px';
+    var firstVideo = null;
+    var secondVideo = null;
+    var lastVideo = null;
+    if(this.props.videos) {
+      firstVideo = 
+        <Screenshot onClick={() => this.handleClick(0)}><Img src={this.props.videos[0].thumbnail}/><MovieMaker/></Screenshot>;
+      secondVideo =
+      <Screenshot onClick={() => this.handleClick(1)}><Img src={this.props.videos[1].thumbnail}/><MovieMaker/></Screenshot>;
+      lastVideo = 
+        <Screenshot onClick={() => this.handleClick(12)}><Img src={this.props.videos[2].thumbnail}/><MovieMaker/></Screenshot>
+
+    }
     return(
       <Wrapper>
         <StripScroll stripPos={stripPos} >
           <HighlightSelector selectorPos={this.state.selectorPos}></HighlightSelector>
-          {
+          {firstVideo}
+          {secondVideo}
+          { 
             this.props.screenshots.map((url, index) => {
-              return <Screenshot onClick={() => this.handleClick(url, index)}><Img src={url}/></Screenshot>
+              return <Screenshot onClick={() => this.handleClick(index + 2)}><Img src={url}/></Screenshot>
             })
           }
+          {lastVideo}
         </StripScroll>
       </Wrapper>
     );

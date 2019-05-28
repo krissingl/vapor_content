@@ -11,15 +11,22 @@ const Img = styled.img`
   width: 600px;
   height: 337px;
 `;
+
+const Video = styled.video`
+  width: 100%;
+  height: 100%;
+
+`;
 class Highlight extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
+    var media = this.props.isVideo ? <video width="100%" height="100%" src={this.props.url} controls/> : <Img src={this.props.url}/>;
     return(
       <Wrapper>
-        <Img src={this.props.image}/>
+        {media}
       </Wrapper>
     );
   }

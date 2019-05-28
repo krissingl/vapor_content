@@ -43,7 +43,7 @@ class App extends React.Component {
       },
       tags: ['Free to play', 'MOBA', 'Strategy', 'Multiplayer', 'PVP'],
       media: {
-        videos: [],
+        videos: null,
         images: ['https://s3-us-west-1.amazonaws.com/fecsteam/Images/1.jpeg']
       },
       sliderPos: '0'
@@ -55,6 +55,7 @@ class App extends React.Component {
     fetch('/games/1')
     .then(response => response.json())
     .then(gameInfo => {
+      gameInfo.head_url = 'https://s3-us-west-1.amazonaws.com/fecsteam/Images/header.jpg';
       this.setState({
         gameInfo
       }, () => console.log(this.state));
@@ -73,10 +74,10 @@ class App extends React.Component {
 
     fetch('/videos')
     .then(response => response.json())
-    .then(({items}) => {
+    .then(videos => {
       this.setState({
         media: {
-          videos : items,
+          videos,
           images:this.state.media.images
         }
       }, () => console.log(this.state));

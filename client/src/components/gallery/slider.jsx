@@ -94,6 +94,7 @@ class Slider extends React.Component {
   updateChange(e) {
     this.props.onSliderMove(e.target.value);
   }
+  
   render() {
     return(
       <Wrapper>
