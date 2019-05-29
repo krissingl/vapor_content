@@ -46,9 +46,7 @@ class App extends React.Component {
         videos: null,
         images: ['https://s3-us-west-1.amazonaws.com/fecsteam/Images/1.jpeg']
       },
-      sliderPos: '0'
     }
-    this.handleSliderMove = this.handleSliderMove.bind(this);
   }
 
   componentDidMount() {
@@ -83,19 +81,12 @@ class App extends React.Component {
       }, () => console.log(this.state));
     });
   }
-  handleSliderMove(val) {
-    this.setState({
-      sliderPos: val
-    })
-  }
   render() {
     return (
       <Background>
         <Wrapper>
           <LeftCol>
             <Gallery  media={this.state.media} 
-                      sliderPos = {this.state.sliderPos} 
-                      onSliderMove = {this.handleSliderMove}
             />
           </LeftCol>
           <Description 

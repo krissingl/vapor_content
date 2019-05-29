@@ -23,7 +23,7 @@ class Highlight extends React.Component {
   }
 
   render() {
-    var media = this.props.isVideo ? <video width="100%" height="100%" src={this.props.url} controls/> : <Img src={this.props.url}/>;
+    var media = this.props.isVideo ? <video width="100%" height="100%" src={this.props.url} controls autoplay allowfullscreen/> : <Img src={this.props.url}/>;
     return(
       <Wrapper>
         {media}

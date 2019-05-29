@@ -60,6 +60,8 @@ const Track = styled.input.attrs({
   top: 0;
   bottom: 0;
   border-radius: 3px;
+  animate: true;
+  -webkit-transition: 1.5s;
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     top: 0;
@@ -98,11 +100,11 @@ class Slider extends React.Component {
   render() {
     return(
       <Wrapper>
-        <LeftArrowWrapper>
-          <LeftArrow/>
-        </LeftArrowWrapper>
+        <LeftArrowWrapper onClick={() => this.props.onLeftClick()}>
+          <LeftArrow onClick={() => this.props.onLeftClick}/>
+        </LeftArrowWrapper >
         <Track value={this.props.sliderPos} onChange={this.updateChange}/>
-        <RightArrowWrapper>
+        <RightArrowWrapper onClick={() => this.props.onRightClick()}>
           <RightArrow/>
         </RightArrowWrapper>
       </Wrapper>

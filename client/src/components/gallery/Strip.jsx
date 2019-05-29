@@ -52,41 +52,32 @@ const Img = styled.img`
 class Strip extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      selectorPos : '240px',
-    }
-    this.handleClick = this.handleClick.bind(this);
   }
   
-handleClick(index){
-  this.props.onClick(index);
-  this.setState({
-    selectorPos: String(120*index) + 'px'
-  })
-}
   render() {
-    var stripPos = this.props.sliderPos * (-962/462) + 'px';
+    var stripPos = String(this.props.stripPos) + 'px';
+    var selectorPos = String(this.props.selectorPos) + 'px';
     var firstVideo = null;
     var secondVideo = null;
     var lastVideo = null;
     if(this.props.videos) {
       firstVideo = 
-        <Screenshot onClick={() => this.handleClick(0)}><Img src={this.props.videos[0].thumbnail}/><MovieMaker/></Screenshot>;
+        <Screenshot onClick={() => this.props.onClick(0)}><Img src={this.props.videos[0].thumbnail}/><MovieMaker/></Screenshot>;
       secondVideo =
-      <Screenshot onClick={() => this.handleClick(1)}><Img src={this.props.videos[1].thumbnail}/><MovieMaker/></Screenshot>;
+      <Screenshot onClick={() => this.props.onClick(1)}><Img src={this.props.videos[1].thumbnail}/><MovieMaker/></Screenshot>;
       lastVideo = 
-        <Screenshot onClick={() => this.handleClick(12)}><Img src={this.props.videos[2].thumbnail}/><MovieMaker/></Screenshot>
+        <Screenshot onClick={() => this.props.onClick(12)}><Img src={this.props.videos[2].thumbnail}/><MovieMaker/></Screenshot>
 
     }
     return(
       <Wrapper>
         <StripScroll stripPos={stripPos} >
-          <HighlightSelector selectorPos={this.state.selectorPos}></HighlightSelector>
+          <HighlightSelector selectorPos={selectorPos}></HighlightSelector>
           {firstVideo}
           {secondVideo}
           { 
             this.props.screenshots.map((url, index) => {
-              return <Screenshot onClick={() => this.handleClick(index + 2)}><Img src={url}/></Screenshot>
+              return <Screenshot onClick={() => this.props.onClick(index + 2)}><Img src={url}/></Screenshot>
             })
           }
           {lastVideo}
