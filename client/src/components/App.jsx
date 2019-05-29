@@ -4,13 +4,12 @@ import Description from "./Description.jsx";
 import styled from 'styled-components';
 
 const Background = styled.div`
-  background: #1b2838;
-  color: #acb2b8;
-  width: auto;
-  margin: 0 2%;
+  
 `;
 
 const Wrapper = styled.section`
+    background: #1b2838;
+    color: #acb2b8;
     padding: 0px 0px 12px;
     margin: 0px 231.5px;
     width: 940px;
