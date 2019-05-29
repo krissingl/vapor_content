@@ -4,13 +4,12 @@ import Description from "./Description.jsx";
 import styled from 'styled-components';
 
 const Background = styled.div`
-  background: #1b2838;
-  color: #acb2b8;
-  width: auto;
-  margin: 0 2%;
+  
 `;
 
 const Wrapper = styled.section`
+    background: #1b2838;
+    color: #acb2b8;
     padding: 0px 0px 12px;
     margin: 0px 231.5px;
     width: 940px;
@@ -19,12 +18,12 @@ const Wrapper = styled.section`
   `;
 
 
- const GalleryWrapper = styled.div`
+ const LeftCol = styled.div`
     float: left;
     width: 616px;
-    height: 100%;
-    background: #c6d4df;
+    display: block;
  `;
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -41,7 +40,11 @@ class App extends React.Component {
         recent_negative_count: null,
         recent_positive_count: null
       },
-      tags: ['Free to play', 'MOBA', 'Strategy', 'Multiplayer', 'PVP']
+      tags: ['Free to play', 'MOBA', 'Strategy', 'Multiplayer', 'PVP'],
+      media: {
+        videos: null,
+        images: ['https://s3-us-west-1.amazonaws.com/fecsteam/Images/1.jpeg']
+      },
     }
   }
 
@@ -49,8 +52,31 @@ class App extends React.Component {
     fetch('/games/1')
     .then(response => response.json())
     .then(gameInfo => {
+      gameInfo.head_url = 'https://s3-us-west-1.amazonaws.com/fecsteam/Images/header.jpg';
       this.setState({
         gameInfo
+      }, () => console.log(this.state));
+    });
+
+    fetch('/screenshots') 
+    .then(response => response.json())
+    .then(screenshots => {
+      this.setState({
+        media: {
+          videos: this.state.media.videos,
+          images: screenshots
+        }
+      }, () => console.log(this.state));
+    });
+
+    fetch('/videos')
+    .then(response => response.json())
+    .then(videos => {
+      this.setState({
+        media: {
+          videos,
+          images:this.state.media.images
+        }
       }, () => console.log(this.state));
     });
   }
@@ -58,9 +84,10 @@ class App extends React.Component {
     return (
       <Background>
         <Wrapper>
-          <GalleryWrapper>
-            <Gallery/>
-          </GalleryWrapper>
+          <LeftCol>
+            <Gallery  media={this.state.media} 
+            />
+          </LeftCol>
           <Description 
           gameInfo={this.state.gameInfo} 
           tags={this.state.tags}

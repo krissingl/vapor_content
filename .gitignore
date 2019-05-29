@@ -24,4 +24,6 @@ coverage
 build/
 dist/
 
+# Enviroment variables
+env/
 

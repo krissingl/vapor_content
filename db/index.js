@@ -25,6 +25,18 @@ var Game = sequelize.define('game', {
   recent_positive_count: Sequelize.INTEGER
 });
 
+var Screenshot = sequelize.define('screenshot', {
+  id: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    autoIncrement: true,
+    primaryKey: true
+  },
+  url: Sequelize.STRING,
+})
+
+
+
 sequelize
   .authenticate()
   .then(() => {
@@ -34,11 +46,14 @@ sequelize
     console.error('Unable to connect to the database:', err);
   });
 
-  Game.sync({ force: false, logging: false }).then(() => {
-    console.log('Game table synced');
-  });
+Game.sync({ force: false, logging: false }).then(() => {
+});
 
-  findGamebyId = (id, callback) => {
+Screenshot.sync({ force: false, logging: false }).then(() => {
+  
+});
+
+var findGamebyId = (id, callback) => {
     Game.findOne({
       where: {
         id: id
@@ -49,7 +64,21 @@ sequelize
     })
     .catch(err => {
       callback(err);
-    })
+    });
   }
+
+  var findScreenshots = (callback) => {
+    Screenshot.findAll()
+    .then(screenshots => {
+      callback(null, JSON.stringify(screenshots));
+    })
+    .catch(err => {
+      callback(err);
+    });
+  }
+
+
   module.exports.findGamebyId = findGamebyId;
+  module.exports.findScreenshots = findScreenshots;
   module.exports.Game = Game;
+  module.exports.Screenshot = Screenshot;

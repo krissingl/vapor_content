@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Cover from './Cover.jsx';
-import Snippet from './Snippet.jsx';
-import Info from './Info.jsx';
-import Tags from './Tags.jsx';
+import Cover from './description/Cover.jsx';
+import Snippet from './description/Snippet.jsx';
+import Info from './description/Info.jsx';
+import Tags from './description/Tags.jsx';
 
 
 const Wrapper = styled.div`
