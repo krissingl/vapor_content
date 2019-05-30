@@ -15,7 +15,7 @@ var searchYouTube = ({key, query}, callback) => {
 var screenshotsUrls = () => {
   var result =[];
   for(let i = 1; i < 11; i++) {
-    result.push('https://s3-us-west-1.amazonaws.com/fecsteam/Images/'+ i +'.jpeg')
+    result.push('https://fecsteam.s3-us-west-1.amazonaws.com/Images/'+ i +'.jpeg')
   }
   return result;
 }
