@@ -3,15 +3,12 @@ import Gallery from "./Gallery.jsx";
 import Description from "./Description.jsx";
 import styled from 'styled-components';
 
-const Background = styled.div`
-  
-`;
 
 const Wrapper = styled.section`
     background: #1b2838;
     color: #acb2b8;
     padding: 0px 0px 12px;
-    margin: 0px 231.5px;
+    margin: 0 2%;
     width: 940px;
     height: 444px;
     font-family: Arial, Helvetica, sans-serif;
@@ -82,7 +79,6 @@ class App extends React.Component {
   }
   render() {
     return (
-      <Background>
         <Wrapper>
           <LeftCol>
             <Gallery  media={this.state.media} 
@@ -93,7 +89,6 @@ class App extends React.Component {
           tags={this.state.tags}
           />
         </Wrapper>
-      </Background>
     )
   }
   
