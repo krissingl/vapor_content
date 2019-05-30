@@ -8,7 +8,6 @@ const Wrapper = styled.section`
     background: #1b2838;
     color: #acb2b8;
     padding: 0px 0px 12px;
-    margin: 0 2%;
     width: 940px;
     height: 444px;
     font-family: Arial, Helvetica, sans-serif;
