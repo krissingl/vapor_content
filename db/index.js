@@ -25,15 +25,7 @@ var Game = sequelize.define('game', {
   recent_positive_count: Sequelize.INTEGER
 });
 
-var Screenshot = sequelize.define('screenshot', {
-  id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    autoIncrement: true,
-    primaryKey: true
-  },
-  url: Sequelize.STRING,
-})
+
 
 
 
@@ -49,9 +41,6 @@ sequelize
 Game.sync({ force: false, logging: false }).then(() => {
 });
 
-Screenshot.sync({ force: false, logging: false }).then(() => {
-  
-});
 
 var findGamebyId = (id, callback) => {
     Game.findOne({
@@ -67,18 +56,8 @@ var findGamebyId = (id, callback) => {
     });
   }
 
-  var findScreenshots = (callback) => {
-    Screenshot.findAll()
-    .then(screenshots => {
-      callback(null, JSON.stringify(screenshots));
-    })
-    .catch(err => {
-      callback(err);
-    });
-  }
+  
 
 
   module.exports.findGamebyId = findGamebyId;
-  module.exports.findScreenshots = findScreenshots;
   module.exports.Game = Game;
-  module.exports.Screenshot = Screenshot;
