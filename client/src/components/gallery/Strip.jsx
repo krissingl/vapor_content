@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components'
+const styled = window.styled;
 
 const Wrapper = styled.div`
   margin-top: 4px;
@@ -77,7 +77,7 @@ class Strip extends React.Component {
           {secondVideo}
           { 
             this.props.screenshots.map((url, index) => {
-              return <Screenshot onClick={() => this.props.onClick(index + 2)}><Img src={url}/></Screenshot>
+              return <Screenshot key={index} onClick={() => this.props.onClick(index + 2)}><Img src={url}/></Screenshot>
             })
           }
           {lastVideo}

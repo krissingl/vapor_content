@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+const styled = window.styled;
 
 const Wrapper = styled.div`
   margin: 10px 0px 0px 0px;

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components'
+const styled = window.styled;
 import Highlight from './gallery/Highlight.jsx';
 import Strip from './gallery/Strip.jsx';
 import Slider from './gallery/Slider.jsx';

@@ -1,7 +1,7 @@
 import React from 'react';
 import Gallery from "./Gallery.jsx";
 import Description from "./Description.jsx";
-import styled from 'styled-components';
+const styled = window.styled;
 
 
 const Wrapper = styled.section`

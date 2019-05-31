@@ -1,11 +1,12 @@
 import React from 'react';
-import styled from 'styled-components'
+const styled = window.styled;
 
 const Wrapper = styled.div`
   background-color: #000000;
   overflow: hidden;
   position: relative;
 `;
+
 
 const Img = styled.img`
   width: 600px;

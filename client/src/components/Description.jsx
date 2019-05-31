@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+const styled = window.styled;
 import Cover from './description/Cover.jsx';
 import Snippet from './description/Snippet.jsx';
 import Info from './description/Info.jsx';

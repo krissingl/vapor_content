@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+const styled = window.styled;
 const Wrapper = styled.div`
   max-height: 111px;
   overflow: hidden;
